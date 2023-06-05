@@ -1,20 +1,38 @@
-import ListGroup from "./components/ListGroup";
+import { useState } from "react";
+
+import Alert from "./components/Alert";
+import Button from "./components/Button";
+
 import "./App.css";
 
 function App() {
-  let cities = ["New York", "Los Angeles", "Chicago", "Houston", "Miami"];
+  const colorCollection = [
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "light",
+    "dark",
+  ];
+  const [randomColor, setRandomColor] = useState("primary");
 
-  const handleSelectItem = (item: string) => {
-    console.log(item);
+  const getRandomColor = () => {
+    const randomIndex = Math.floor(Math.random() * colorCollection.length);
+    const newRandomColor = colorCollection[randomIndex];
+
+    setRandomColor(newRandomColor);
   };
 
   return (
     <div>
-      <ListGroup
-        items={cities}
-        heading="Cities"
-        onSelectItem={handleSelectItem}
-      />
+      <Alert>
+        Hello <span>World</span>
+      </Alert>
+      <Button color={randomColor} onClick={getRandomColor}>
+        Click!
+      </Button>
     </div>
   );
 }
