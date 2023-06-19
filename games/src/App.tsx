@@ -1,38 +1,13 @@
-import { useState } from "react";
-
-import Alert from "./components/Alert";
-import Button from "./components/Button";
-
-import "./App.css";
+import { BsFillCalendarFill } from 'react-icons/bs';
+import Button from './components/Button/button';
+import Like from './components/Like/Like';
 
 function App() {
-  const colorCollection = [
-    "primary",
-    "secondary",
-    "success",
-    "danger",
-    "warning",
-    "info",
-    "light",
-    "dark",
-  ];
-  const [randomColor, setRandomColor] = useState("primary");
-
-  const getRandomColor = () => {
-    const randomIndex = Math.floor(Math.random() * colorCollection.length);
-    const newRandomColor = colorCollection[randomIndex];
-
-    setRandomColor(newRandomColor);
-  };
-
   return (
     <div>
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
-      <Button color={randomColor} onClick={getRandomColor}>
-        Click!
-      </Button>
+      <BsFillCalendarFill color="blue" size="100"/>
+      <Button />
+      <Like onClick={() => console.log('like!')}/>
     </div>
   );
 }
